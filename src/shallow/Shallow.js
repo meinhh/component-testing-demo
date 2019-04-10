@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import InnerComponent from './InnerComponent';
+import InnerComponent from '../InnerComponent';
 
-export default class Unit extends Component {
+export default class Shallow extends Component {
 	constructor(props) {
 		super(props);
 

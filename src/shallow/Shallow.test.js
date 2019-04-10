@@ -1,32 +1,32 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import Unit from './Unit';
-import InnerComponent from './InnerComponent';
+import Shallow from './Shallow';
+import InnerComponent from '../InnerComponent';
 import jest from 'jest-mock';
 
-describe('unit tests', () => {
+describe('shallow tests', () => {
 	it('renders three inner components', () => {
-		const wrapper = shallow(<Unit />);
+		const wrapper = shallow(<Shallow />);
 		expect(wrapper.find(InnerComponent)).toHaveLength(3);
 	});
 
 	it('renders the title', () => {
-		const wrapper = shallow(<Unit />);
+		const wrapper = shallow(<Shallow />);
 		expect(wrapper.find('.title').text()).toEqual('hi');
 	});
 
 	it('renders children when passed in', () => {
 		const wrapper = shallow((
-			<Unit>
+			<Shallow>
 				<div className="unique" />
-			</Unit>
+			</Shallow>
 		));
 		expect(wrapper.contains(<div className="unique" />)).toEqual(true);
 	});
 
 	it('simulates click events', () => {
 		const onButtonClickMock = jest.fn();
-		const wrapper = shallow(<Unit onButtonClick={onButtonClickMock} />);
+		const wrapper = shallow(<Shallow onButtonClick={onButtonClickMock} />);
 		wrapper.find('button').simulate('click');
 		expect(onButtonClickMock.mock.calls).toHaveLength(1);
 	});

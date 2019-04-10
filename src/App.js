@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import Unit from './unit-test/Unit';
+import Shallow from './shallow/Shallow';
+import Mount from './mount/Mount';
+import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Unit />
+        <div className="border"><Shallow onButtonClick={() => alert('shallow')} /></div>
+        <div className="border"><Mount title="fml" onButtonClick={() => alert('mount')} /></div>
       </div>
     );
   }
