@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <h1
+    className="title"
+  >
+    this is a title
+  </h1>
+  <div>
+    i do nothing
+  </div>
+  <button
+    onClick={[Function]}
+  >
+    CLICK ME
+  </button>
+</div>
+`;
