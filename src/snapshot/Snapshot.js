@@ -1,19 +1,37 @@
-import React, { Component } from 'react';
-import InnerComponent from '../InnerComponent';
 
-export default class Snapshot extends Component {
-	constructor(props) {
-		super(props);
+import React from 'react';
+import './Snapshot.css';
 
-		this.handleClick = () => { };
+const STATUS = {
+	HOVERED: 'hovered',
+	NORMAL: 'normal',
+};
+
+export default class Snapshot extends React.Component {
+	constructor() {
+		super();
+
+		this.state = {
+			class: STATUS.NORMAL,
+		};
 	}
+
+	_onMouseEnter = () => {
+		this.setState({ class: STATUS.HOVERED });
+	};
+
+	_onMouseLeave = () => {
+		this.setState({ class: STATUS.NORMAL });
+	};
+
 	render() {
 		return (
-			<div>
-				<h1 className="title">{this.props.title}</h1>
-				<InnerComponent />
-				<button onClick={this.handleClick}>CLICK ME</button>
-			</div>
+			<a className={this.state.class}
+				href={this.props.page || '#'}
+				onMouseEnter={this._onMouseEnter}
+				onMouseLeave={this._onMouseLeave}>
+				{this.props.children}
+			</a>
 		);
 	}
 }
