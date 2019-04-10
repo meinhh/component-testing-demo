@@ -1,4 +1,4 @@
-import { render, cleanup, fireEvent } from 'react-testing-library';
+import { render, cleanup, fireEvent, waitForElement } from 'react-testing-library';
 import React from 'react';
 import Integration from './Integration';
 describe('integration tests', () => {
@@ -13,6 +13,6 @@ describe('integration tests', () => {
 		const { getByText } = render(<Integration name="juicy fruit" />);
 		const el = getByText('juicy fruit');
 		fireEvent.click(el);
-		getByText('JUICY FRUIT');
+		waitForElement(() => getByText('JUICY FRUIT'));
 	});
 });

@@ -7,7 +7,9 @@ export default class Integration extends Component {
 	}
 
 	upperCase() {
-		this.setState({ name: this.props.name.toUpperCase() });
+		setTimeout(() =>
+			this.setState({ name: this.props.name.toUpperCase() })
+			, 100);
 	}
 	render() {
 		return (
