@@ -5,9 +5,14 @@ import InnerComponent from '../InnerComponent';
 import jest from 'jest-mock';
 
 describe('shallow tests', () => {
-	it('renders three inner components', () => {
+	it('fake renders three inner components', () => {
 		const wrapper = shallow(<Shallow />);
 		expect(wrapper.find(InnerComponent)).toHaveLength(3);
+	});
+
+	it('doesn\'t actually render inner components', () => {
+		const wrapper = shallow(<Shallow />);
+		expect(wrapper.find('.inner-comp')).toHaveLength(0);
 	});
 
 	it('renders the title', () => {
