@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import InnerComponent from '../InnerComponent';
 
 export default class Integration extends Component {
 	constructor(props) {
@@ -13,8 +14,11 @@ export default class Integration extends Component {
 	}
 	render() {
 		return (
-			<div onClick={this.upperCase.bind(this)}>
-				{this.state.name}
+			<div>
+				<InnerComponent />
+				<div onClick={this.upperCase.bind(this)}>
+					{this.state.name}
+				</div>
 			</div>
 		);
 	}

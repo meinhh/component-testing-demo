@@ -15,4 +15,9 @@ describe('integration tests', () => {
 		fireEvent.click(el);
 		waitForElement(() => getByText('JUICY FRUIT'));
 	});
+
+	it('should render inner component', () => {
+		const { getByText } = render(<Integration name="juicy fruit" />);
+		getByText('i do nothing');
+	});
 });
